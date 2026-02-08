@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invitación XV Años</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="invitacion.css">
+
+  <!-- Fuentes elegantes -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Iconos (FontAwesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- PANTALLA DE BIENVENIDA (SOBRE) -->
+  <div id="envelope-overlay" class="envelope-overlay">
+    <div class="envelope-container">
+      <div class="envelope-flap"></div>
+      <div class="envelope-pocket"></div>
+      <div class="wax-seal" onclick="abrirSobre()">
+        <span>XV</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Estrellas animadas -->
+  <div class="stars">
+    <span style="top:8%; left:15%"></span>
+    <span style="top:20%; left:85%"></span>
+    <span style="top:35%; left:10%"></span>
+    <span style="top:55%; left:80%"></span>
+    <span style="top:70%; left:20%"></span>
+    <span style="top:80%; left:60%"></span>
+    <span style="top:40%; left:50%"></span>
+    <span style="top:15%; left:55%"></span>
+  </div>
+
+  <!-- Invitación -->
+  <section class="invitation">
+
+    <!-- SECCIÓN 1: Quién invita y a qué -->
+    <div class="section-header">
+      <p class="text" style="margin-bottom: 10px;">
+        Luis Pucuna y Viviana Usama<br>
+        <span style="font-size: 0.85em;">Te invitan a la celebración de nuestra hija</span>
+      </p>
+
+      <h1 class="title">
+        Norelis Pucuna Usama
+        <span class="star-orbit"></span>
+      </h1>
+
+      <h2 class="subtitle">Mis XV Años</h2>
+
+      <div class="glow-line"></div>
+
+      <p class="text">
+        Acompáñanos a celebrar este momento tan especial,
+        lleno de sueños, alegría y amor.
+      </p>
+    </div>
+
+    <!-- SECCIÓN 2: Información importante -->
+    <div class="section-info" style="margin: 30px 0;">
+      <div class="star"></div>
+      
+      <div class="details">
+        <div class="detail-box">
+          <span class="label"><i class="fas fa-calendar-day"></i> Fecha</span>
+          <p>25 de Febrero</p>
+        </div>
+      </div>
+
+      <!-- Cuenta Regresiva -->
+      <p style="color:#d4af37; margin-top:15px; font-size:1.1em;">Estamos contando los días</p>
+      <div id="countdown" class="countdown">
+        <div class="time-box">
+          <span id="days">00</span>
+          <span class="label-time">Días</span>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <span class="label-time">Hs</span>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <span class="label-time">Min</span>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <span class="label-time">Seg</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN ITINERARIO -->
+    <div class="section-itinerary">
+      <div class="glow-line" style="width: 50%; opacity: 0.5;"></div>
+      <h3 class="subtitle" style="margin: 20px 0;">Itinerario</h3>
+      
+      <div class="itinerary-box">
+        <div class="itinerary-item">
+          <span class="i-time">3:30 PM</span>
+          <span class="i-icon"><i class="fas fa-church"></i></span>
+          <span class="i-text">Ceremonia Religiosa</span>
+        </div>
+        <div class="itinerary-item">
+          <span class="i-time">5:00 PM</span>
+          <span class="i-icon"><i class="fas fa-door-open"></i></span>
+          <span class="i-text">Recepción en Hotel</span>
+        </div>
+        <div class="itinerary-item">
+          <span class="i-time">6:00 PM</span>
+          <span class="i-icon"><i class="fas fa-star"></i></span>
+          <span class="i-text">Entrada Triunfal</span>
+        </div>
+        <div class="itinerary-item">
+          <span class="i-time">6:30 PM</span>
+          <span class="i-icon"><i class="fas fa-music"></i></span>
+          <span class="i-text">Vals y Brindis</span>
+        </div>
+        <div class="itinerary-item">
+          <span class="i-time">7:30 PM</span>
+          <span class="i-icon"><i class="fas fa-utensils"></i></span>
+          <span class="i-text">Cena</span>
+        </div>
+        <div class="itinerary-item">
+          <span class="i-time">9:00 PM</span>
+          <span class="i-icon"><i class="fas fa-compact-disc"></i></span>
+          <span class="i-text">Baile y Fiesta</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3: Ubicación y Confirmación -->
+    <div class="section-location">
+      <div class="glow-line" style="width: 50%; opacity: 0.5;"></div>
+      
+      <div class="details">
+        <div class="detail-box">
+          <span class="label"><i class="fas fa-cross"></i> Ceremonia Religiosa</span>
+          <p>Iglesia San Clemente</p>
+          <p>3:30 P.M.</p>
+        </div>
+        <div class="detail-box">
+          <span class="label"><i class="fas fa-glass-cheers"></i> Recepción</span>
+          <p>Hotel Golden</p>
+          <p>5:00 P.M.</p>
+        </div>
+      </div>
+
+      <a href="https://maps.google.com/?q=Iglesia+San+Clemente" target="_blank" class="btn">
+        <i class="fas fa-map-location-dot"></i> Ver ubicación Iglesia
+      </a>
+      <a href="https://maps.google.com/?q=Hotel+Golden" target="_blank" class="btn">
+        <i class="fas fa-map-location-dot"></i> Ver ubicación Recepción
+      </a>
+      <button class="btn" onclick="confirmarAsistencia()">
+        <i class="fab fa-whatsapp"></i> Confirmar asistencia
+      </button>
+    </div>
+
+  </section>
+
+  <!-- Audio de fondo -->
+  <audio id="musica-fondo" loop>
+    <source src="pista.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <!-- Botón de control de música -->
+  <button id="music-btn" class="music-btn" onclick="toggleMusic()">
+    🎵
+  </button>
+
+  <!-- JS -->
+  <script src="invitacion.js"></script>
+
+</body>
+</html>

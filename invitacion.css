@@ -1,0 +1,438 @@
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Montserrat', sans-serif;
+  min-height:100vh;
+  display:flex;
+  background:#0b0b0b;
+  color:#fff;
+  overflow-x:hidden;
+  padding:20px;
+  overflow-y: hidden; /* Bloqueamos scroll hasta abrir el sobre */
+}
+
+/* FONDO CON BRILLO DORADO */
+
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  top:0;
+  width:40%;
+  height:100%;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212,175,55,.35) 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(212,175,55,.25) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+body::before{
+  left:-10%;
+}
+
+body::after{
+  right:-10%;
+}
+
+/* PARTÍCULAS / ESTRELLAS */
+
+.stars{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+}
+
+.stars span{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:#d4af37;
+  border-radius:50%;
+  animation:twinkle 3s infinite ease-in-out;
+  opacity:.6;
+}
+
+@keyframes twinkle{
+  0%,100%{opacity:.2; transform:scale(.7);}
+  50%{opacity:1; transform:scale(1.4);}
+}
+
+/* ANIMACIONES */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* TARJETA */
+
+.invitation{
+  position:relative;
+  width:90%;
+  margin:auto;
+  max-width:420px;
+  padding:40px 25px;
+  border-radius:10px; /* Bordes menos redondeados para estilo marco */
+  border: 3px double #d4af37; /* Marco doble estilo cuadro */
+  outline: 1px solid rgba(212,175,55,0.4);
+  outline-offset: -12px; /* Marco interno decorativo */
+  background:linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.85));
+  backdrop-filter:blur(8px);
+  text-align:center;
+  box-shadow:0 0 40px rgba(212,175,55,.15);
+  animation: float 6s ease-in-out infinite; /* Movimiento de levitación */
+}
+
+/* FLORES DECORATIVAS (Imágenes Reales) */
+.invitation::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 150px;
+  height: 150px;
+  background: url('flores.png') no-repeat center/contain;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+.invitation::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 150px;
+  height: 150px;
+  background: url('flores.png') no-repeat center/contain;
+  transform: rotate(180deg);
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+/* TITULOS */
+
+.subtitle{
+  color:#c9a23a;
+  letter-spacing:4px;
+  font-size:14px;
+}
+
+.title{
+  font-family:'Great Vibes', cursive;
+  font-size:60px;
+  color:#f3d27a;
+  margin:10px 0;
+  text-shadow:0 0 15px rgba(212,175,55,.4);
+  position: relative;
+  display: inline-block;
+}
+
+/* LINEA LUMINOSA */
+
+.glow-line{
+  height:3px;
+  width:80%;
+  margin:20px auto;
+  background:linear-gradient(90deg, transparent, #d4af37, transparent);
+  box-shadow:0 0 20px #d4af37;
+  border-radius:50%;
+}
+
+/* TEXTO */
+
+.text{
+  font-size:14px;
+  line-height:1.6;
+  opacity:.9;
+  margin-bottom:25px;
+}
+
+/* SECCIONES CON ANIMACIÓN DE ENTRADA */
+.section-header, .section-info, .section-itinerary, .section-location {
+  position: relative;
+  z-index: 1; /* Asegura que el texto esté sobre las flores */
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.section-info { animation-delay: 0.3s; opacity: 0; }
+.section-itinerary { animation-delay: 0.6s; opacity: 0; }
+.section-location { animation-delay: 0.9s; opacity: 0; }
+
+/* DETALLES */
+
+.details{
+  display:grid;
+  gap:12px;
+  margin-bottom:25px;
+}
+
+.label{
+  color:#d4af37;
+  font-weight:500;
+}
+
+/* Espacio para los iconos */
+.label i, .btn i {
+  margin-right: 8px;
+}
+
+/* BOTONES */
+
+.btn{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:30px;
+  border:1px solid #d4af37;
+  background:transparent;
+  color:#d4af37;
+  cursor:pointer;
+  transition:.3s;
+  text-decoration: none;
+  display: block;
+}
+
+.btn:hover{
+  background:#d4af37;
+  color:#000;
+  box-shadow:0 0 15px rgba(212,175,55,.6);
+}
+
+/* ESTRELLA DECORATIVA */
+
+.star{
+  width:12px;
+  height:12px;
+  background:#d4af37;
+  clip-path:polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  margin:10px auto;
+  filter:drop-shadow(0 0 6px #d4af37);
+  animation:twinkle 2.5s infinite;
+}
+
+/* RESPONSIVE CELULAR */
+
+@media (max-width:480px){
+
+  .title{
+    font-size:46px;
+  }
+
+  .invitation{
+    padding:30px 18px;
+  }
+
+  .text{
+    font-size:13px;
+  }
+}
+
+/* CUENTA REGRESIVA */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #d4af37;
+  border-radius: 5px;
+  width: 60px;
+  padding: 5px 0;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.time-box span:first-child {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f3d27a;
+}
+
+.label-time {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: 2px;
+}
+
+/* ITINERARIO */
+.itinerary-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.itinerary-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 15px;
+  border-radius: 8px;
+  border-left: 3px solid #d4af37;
+  transition: transform 0.3s;
+}
+
+.itinerary-item:hover {
+  transform: translateX(5px);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.i-time {
+  font-weight: bold;
+  color: #d4af37;
+  font-size: 0.9rem;
+  min-width: 65px;
+}
+
+.i-icon {
+  font-size: 1.1rem;
+  color: #f3d27a;
+  margin: 0 15px;
+  width: 20px;
+  text-align: center;
+}
+
+.i-text {
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+/* --- ESTILOS DEL SOBRE (INTRO) --- */
+
+.envelope-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #050505;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1.5s ease-in-out, opacity 1s ease-in-out 0.5s;
+}
+
+.envelope-container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #1a1a1a;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Solapa del sobre (Triángulo superior) */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 110px solid #2a2a2a; /* Color de la solapa */
+  transform-origin: top;
+  transition: transform 0.8s ease;
+  z-index: 2;
+}
+
+/* Cuerpo del sobre (Bolsillo) */
+.envelope-pocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid #222;
+  border-right: 150px solid #222;
+  border-bottom: 100px solid #1f1f1f;
+  z-index: 1;
+}
+
+/* Sello de Lacre */
+.wax-seal {
+  position: absolute;
+  top: 40px; /* Ajustado para cerrar la solapa */
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #ffd700, #d4af37, #8a6e2f);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6), inset 0 0 10px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  cursor: pointer;
+  border: 2px solid #b8860b;
+  animation: pulse 2s infinite;
+}
+
+.wax-seal span {
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  color: #5c4008;
+  font-weight: bold;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(212,175,55, 0); }
+  50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(212,175,55, 0.6); }
+}
+
+/* Clase para ocultar el sobre al abrir */
+.envelope-overlay.open {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+/* BOTÓN DE MÚSICA FLOTANTE */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #d4af37;
+  border-radius: 50%;
+  color: #d4af37;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.music-btn:hover {
+  background: #d4af37;
+  color: #000;
+  transform: scale(1.1);
+}
